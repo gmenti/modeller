@@ -1,4 +1,4 @@
-const Moldeler = require('../lib/index');
+const Modeller = require('../lib/index');
 
 const asyncValidation = () => new Promise((resolve, reject) => {
   resolve();
@@ -8,7 +8,7 @@ const asyncValidation = () => new Promise((resolve, reject) => {
   });
 });
 
-const peopleValidator = new Moldeler({
+const peopleValidator = new Modeller({
   name: 'string',
   age: 'integer|size:6,9',
 }, asyncValidation);

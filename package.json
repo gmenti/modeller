@@ -1,5 +1,5 @@
 {
-  "name": "moldeler",
+  "name": "modeller",
   "version": "1.0.1",
   "description": "Object molder for nodejs",
   "main": "./lib/index.js",
