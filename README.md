@@ -1,22 +1,22 @@
-# Modelizer
+# Moldeler
 
 > Object modeler for node.js
 
 ## Installing
 ``` bash
-npm install modelizer --save
+npm install moldeler --save
 ```
 
 ## Getting start
 
 ```js
-const Modelizer = require('modelizer');
+const Moldeler = require('moldeler');
   
-Modelizer.register('myRule', (valueReceived, valueOfRule) => {
+Moldeler.register('myRule', (valueReceived, valueOfRule) => {
   return (valueReceived <= valueOfRule);
 });
  
-const userMold = new Modelizer({
+const userMold = new Moldeler({
   name: 'string',
   age: 'integer|myRule:10',
 });
