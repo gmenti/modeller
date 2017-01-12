@@ -9,7 +9,7 @@ const asyncValidation = () => new Promise((resolve, reject) => {
 });
 
 const peopleValidator = new Modeller({
-  name: 'string',
+  name: 'required|string',
   age: 'integer|size:6,9',
 }, asyncValidation);
 
