@@ -1,0 +1,23 @@
+{
+  "name": "moldelizer",
+  "version": "1.0.0",
+  "description": "Object molder for nodejs",
+  "main": "./lib/index.js",
+  "scripts": {
+    "start": "node ./lib/index.js",
+    "watch": "nodemon --watch src --exec \" npm run start \"",
+    "test": "mocha"
+  },
+  "author": "Giuseppe Menti <mentifg@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "mocha": "^3.2.0",
+    "nodemon": "^1.11.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.10.2",
+    "eslint-config-airbnb-base": "^10.0.1",
+    "eslint-plugin-import": "^2.2.0",
+    "rimraf": "^2.5.4"
+  }
+}
