@@ -1,23 +1,15 @@
 const Modeller = require('../lib/index');
 
-const asyncValidation = () => new Promise((resolve, reject) => {
-  resolve();
-  reject({
-    key: 'email',
-    value: 'unique',
-  });
-});
-
-const peopleValidator = new Modeller({
+const dogMold = Modeller.createMold({
   name: 'required|string',
-  age: 'integer|size:6,9',
-}, asyncValidation);
+  age: 'integer|size:0,30',
+});
 
 describe('Validator tests', () => {
 
   it('validator must be a valid', (done) => {
-    peopleValidator.test({
-      name: 'Giuseppe',
+    dogMold.test({
+      name: 'Rex',
       age: 7,
     }).then(() => {
       done();
@@ -28,7 +20,7 @@ describe('Validator tests', () => {
   });
 
 	it('validator must be a invalid', (done) => {
-    peopleValidator.test({
+    dogMold.test({
       name: null,
       age: 10,
     }).then(() => {

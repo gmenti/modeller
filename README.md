@@ -10,27 +10,57 @@ npm install modeller --save
 ## Getting start
 
 ```js
-const Modeller = require('moldeler');
-  
+const Modeller = require('modeller');
+ 
+// sync rule
 Modeller.register('myRule', (valueReceived, valueOfRule) => {
   return (valueReceived <= valueOfRule);
 });
  
-const userMold = new Modeller({
-  name: 'string',
-  age: 'integer|myRule:10',
-});
+// async rule
+Modeller.register('myRuleAsync', valueReceived => new Promise((resolve, reject) => {
+  setTimeout(() => {
+    if (valueReceived >= 18) {
+      resolve();
+    } else {
+      reject();
+    }
+  }, 150);
+}); 
  
-const userToValidate = {
-  name: 'User name',
-  age: 6,
-};
+const userMold = Modeller.createMold({
+  name: 'string',
+  age: 'integer|myRule:110|myRuleAsync',
+});
   
-userMold.test(userToValidate).then(() => {
+userMold.test({
+  name: 'User name',
+  age: 19,
+}).then(() => {
   // validated
 }).catch((errors) => {
-  // errors: { age: myRule:10 }
+  //
 });
+ 
+userMold.test({
+  name: 'User name',
+  age: 10,
+}).then(() => {
+  //
+}).catch((errors) => {
+  // errors = { age: [ 'myRuleAsync' ] }
+});
+ 
+userMold.test({
+  name: 'User name',
+  age: 115,
+}).then(() => {
+  //
+}).catch((errors) => {
+  // errors = { age: [ 'myRule', 110 ] }
+});
+
+
 ```
 
 ## Build Setup
@@ -46,5 +76,5 @@ npm run start
 npm run watch
   
 # run tests
-npm run teste
+npm run test
 ```
