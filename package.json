@@ -11,6 +11,7 @@
   "author": "Giuseppe Menti <mentifg@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "bluebird": "^3.4.7",
     "mocha": "^3.2.0",
     "nodemon": "^1.11.0"
   },
