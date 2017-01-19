@@ -1,6 +1,6 @@
 {
   "name": "modeller",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Object molder for nodejs",
   "main": "./lib/index.js",
   "scripts": {
