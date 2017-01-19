@@ -21,11 +21,11 @@ describe('Validator tests', () => {
 
 	it('validator must be a invalid', (done) => {
     dogMold.test({
-      name: null,
+      name: undefined,
       age: 10,
     }).then(() => {
       done('validator is valid');
-    }).catch(() => {
+    }).catch((errors) => {
       done();
     });
 	});
